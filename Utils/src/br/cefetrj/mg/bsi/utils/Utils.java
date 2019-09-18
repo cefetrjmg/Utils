@@ -33,8 +33,8 @@ public class Utils {
         JOptionPane.showMessageDialog(null, msg, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void print(String msg, String title, boolean error) {
-        JOptionPane.showMessageDialog(null, msg, title, (error ? JOptionPane.ERROR_MESSAGE : JOptionPane.INFORMATION_MESSAGE));
+    public static void print(String msg, String title, boolean status) {
+        JOptionPane.showMessageDialog(null, msg, title, (status ? JOptionPane.INFORMATION_MESSAGE : JOptionPane.ERROR_MESSAGE));
     }
 
     public static int confirm(String msg, String title) {
