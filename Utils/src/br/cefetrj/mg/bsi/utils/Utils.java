@@ -21,8 +21,8 @@ public class Utils {
         return JOptionPane.showInputDialog(null, msg);
     }
 
-    public static String input(String msg, String title) {
-        return JOptionPane.showInputDialog(null, msg, title);
+    public static String input(String msg, String initialSelectionValue) {
+        return JOptionPane.showInputDialog(null, msg, initialSelectionValue);
     }
 
     public static void print(String msg) {
