@@ -4,11 +4,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
-
+/**
+ *@author Cristian Madeira de Souza Pereira
+ */
 public class Utils {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+    /**
+     
+     * @param d Date that will be converted
+     * @return String
+     */
     public static String dateToText(Date d) {
         return sdf.format(d);
     }
@@ -40,6 +47,8 @@ public class Utils {
     public static int confirm(String msg, String title) {
         return JOptionPane.showConfirmDialog(null, msg, title, JOptionPane.YES_NO_OPTION);
     }
-    
+    public static String printf(String msg, Object ...args){
+        return String.format(msg,args);
+    }
 
 }
