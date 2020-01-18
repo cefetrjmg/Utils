@@ -1,8 +1,13 @@
 package br.cefetrj.mg.bsi.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *@author Cristian Madeira de Souza Pereira
@@ -49,6 +54,32 @@ public class Utils {
     }
     public static String printf(String msg, Object ...args){
         return String.format(msg,args);
+    }
+    
+    /**
+     * @param params is variable of map(String,String) type 
+     * @return is a return of byte array
+     */
+    public static byte[] mapToBytes(Map<String, String> params) {
+        try {
+            StringBuilder postData = new StringBuilder();
+            for (Map.Entry<String, String> param : params.entrySet()) {
+
+                if (postData.length() != 0) {
+                    postData.append('&');
+                }
+
+                postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+                postData.append('=');
+                postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+            }
+            byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+            return postDataBytes;
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
     }
 
 }
